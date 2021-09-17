@@ -1,0 +1,61 @@
+<div class="row my-4">
+    <div class="col-md-6">
+        <h3>
+            list of films
+        </h3>
+    </div>
+
+    <div class="col-md-6 text-right">
+        <button class="btn btn-primary btn-sm">
+            <i class="fas fa-plus"></i>New film
+        </button>
+        
+        <button class="btn btn-primary btn-sm">
+            <i class="fas fa-plus"></i>New film
+        </button>
+
+        <button class="btn btn-primary btn-sm">
+            <i class="fas fa-plus"></i>New film
+        </button>
+    </div>
+</div>
+
+<div class="row mb-5">
+    <div class="col-md-6 mx-auto">
+        <div class="form-group">
+            <label class="mb-2"> Recherche un film</label>
+            <input id="label" (keyup)="searchFilms()" [(ngModel)]="searchText" placeholder="recherche..." type="text" class="form-control">
+            <select name="" id=""></select>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <table  class="table table-hover">
+        <thead>
+            <tr class="table-active">
+                <th scoope="col">Name </th>
+                <th scoope="col">realisateur</th>
+                <th scoope="col"> annee de production </th>
+                <th scoope="col"> nationalite </th>
+                <th scoope="col"> derniere diffusion</th>
+                <th scoope="col"> nb diffusion </th>
+                <th scoope="col"> nb premiere partie </th>
+                <th scoope="col"> moyenne de diffusion par an </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let film of resultatFilms">
+            <tr>
+                <td>{{film.nom}}</td>
+                <td>{{film.realisateur}}</td>
+                <td>{{film.annee_production}}</td>
+                <td>{{film.nationalite}}</td>
+                <td>{{film.derniere_diffusion}}</td>
+                <td>{{film.nb_diffusion}}</td>
+                <td>{{film.nb_premiere_partie}}</td>
+                <td>{{film.moyenne_diffusion_par_an}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
