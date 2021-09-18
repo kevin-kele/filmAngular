@@ -49,13 +49,15 @@ export class FilmsComponent implements OnInit {
       this.filmService.findAll()
           .subscribe(films => {
             this.resultatFilms = this.films = films
-            console.log("film"+this.films)
           })
     }
 
     searchFilms(){
       this.resultatFilms = this.films.filter((film)=>film.nom.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase()))
-    //  this.resultatFilms = this.films.filter((film)=>film.realisateur.includes(this.searchText))
+    }
+
+    searchRea(){
+      this.resultatFilms = this.films.filter((film)=>film.realisateur.includes(this.searchText))
     }
 
     openDialog(){
@@ -71,9 +73,12 @@ export class FilmsComponent implements OnInit {
 
     onChange(event:any){
       // console.log(event.target.value)
-      if ( event.target.checked) {
+      if ( event.target.checked == true) {
         this.resultatFilms = this.films.filter((e:any)=>e.nationalite == event.target.value)
+      }else {
+        this.resultatFilms = this.films
       }
     }
+    
     
 }

@@ -16,6 +16,9 @@ import { TopFilmComponent } from './top-film/top-film.component';
 import { TopRealisateurComponent } from './top-realisateur/top-realisateur.component';
 
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,8 @@ import { TopRealisateurComponent } from './top-realisateur/top-realisateur.compo
     HttpClientModule,
     FormsModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,6 +11,9 @@ import { FilmService } from 'src/app/services/film.service';
 export class PopUpComponent implements OnInit {
   films:Film[]=[];
   resultatFilms :Film[]=[];
+
+  lenghtTotal:any;
+  page: number = 1;
   
 
   constructor(private filmService:FilmService) { }
@@ -19,14 +22,21 @@ export class PopUpComponent implements OnInit {
 
     this.getFilms();
     // this.getDimensionsByFind(5);
+    this.sortChange()
   }
   getFilms(){
     this.filmService.findAll()
     .subscribe(films => {
-      this.resultatFilms = this.films = films
+      this.resultatFilms = this.films = films.sort((a,b)=>a.nb_diffusion + b.nb_diffusion)
+
+      this.lenghtTotal = films.length
+
+      console.log(this.resultatFilms)
     })
-    
-    
          
+  }
+  sortChange(){
+    this.resultatFilms = this.films.filter((e:any)=>e.nb_diffusion.splice(5))
+    console.log(this.resultatFilms)
   }
 }
