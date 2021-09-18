@@ -9,17 +9,29 @@ import { FilmsComponent } from './components/films/films.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PopUpComponent } from './pop-up/pop-up.component';
+import { TopFilmComponent } from './top-film/top-film.component';
+import { TopRealisateurComponent } from './top-realisateur/top-realisateur.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FilmsComponent
+    FilmsComponent,
+    PopUpComponent,
+    TopFilmComponent,
+    TopRealisateurComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

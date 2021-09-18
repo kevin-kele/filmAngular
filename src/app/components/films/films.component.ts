@@ -1,7 +1,12 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 import { Component, OnInit } from '@angular/core';
 import { Film } from 'src/app/models/film';
 import { FilmService } from 'src/app/services/film.service';
+
+import { MatDialog } from "@angular/material/dialog";
+import { PopUpComponent } from 'src/app/pop-up/pop-up.component';
+import { TopFilmComponent } from 'src/app/top-film/top-film.component';
+import { TopRealisateurComponent } from 'src/app/top-realisateur/top-realisateur.component';
 
 @Component({
   selector: 'app-films',
@@ -13,8 +18,9 @@ export class FilmsComponent implements OnInit {
   films:Film[]=[];
   resultatFilms :Film[]=[];
   searchText='';
+  
 
-  constructor(private filmService:FilmService) { }
+  constructor(private filmService:FilmService , public dialogRef: MatDialog ) { }
 
   ngOnInit(): void {
     this.getFilms();
@@ -31,5 +37,14 @@ export class FilmsComponent implements OnInit {
     //  this.resultatFilms = this.films.filter((film)=>film.realisateur.includes(this.searchText))
     }
 
+    openDialog(){
+      this.dialogRef.open(PopUpComponent)
+    }
+    openDialogRatio(){
+      this.dialogRef.open(TopFilmComponent)
+    }
 
+    openDialogRea(){
+      this.dialogRef.open(TopRealisateurComponent)
+    }
 }
