@@ -25,11 +25,15 @@
         <div class="form-group">
             <label class="mb-2"> Recherche un film</label>
             <input id="label" (keyup)="searchFilms()" [(ngModel)]="searchText" placeholder="recherche..." type="text" class="form-control">
-            <select name="" id=""></select>
+
+           <ul class="d-flex">
+               <li class="m-3" *ngFor="let check of CheckBoxArray">
+                   <input class="m-1" (change)="onChange($event)" value="{{check.nationalite}}" type="{{check.type}}">{{check.nationalite}}
+               </li>
+           </ul>
         </div>
     </div>
 </div>
-
 <div class="row">
     <table  class="table table-hover">
         <thead>

@@ -18,7 +18,27 @@ export class FilmsComponent implements OnInit {
   films:Film[]=[];
   resultatFilms :Film[]=[];
   searchText='';
-  
+  FilmSelected!: number;
+  CheckBoxArray:any = [
+    {
+      nationalite:"France",
+      type:'checkbox'
+    },
+    {
+      nationalite:"Etats-Unis",
+      type:'checkbox'
+    },
+    {
+      nationalite:"Europe",
+      type:'checkbox'
+    },
+    {
+      nationalite:"autres nationalités",
+      type:'checkbox'
+    },
+  ];
+
+  filmArray:any=[];
 
   constructor(private filmService:FilmService , public dialogRef: MatDialog ) { }
 
@@ -29,6 +49,7 @@ export class FilmsComponent implements OnInit {
       this.filmService.findAll()
           .subscribe(films => {
             this.resultatFilms = this.films = films
+            console.log("film"+this.films)
           })
     }
 
@@ -47,4 +68,12 @@ export class FilmsComponent implements OnInit {
     openDialogRea(){
       this.dialogRef.open(TopRealisateurComponent)
     }
+
+    onChange(event:any){
+      // console.log(event.target.value)
+      if ( event.target.checked) {
+        this.resultatFilms = this.films.filter((e:any)=>e.nationalite == event.target.value)
+      }
+    }
+    
 }

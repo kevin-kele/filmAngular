@@ -11,17 +11,22 @@ import { FilmService } from 'src/app/services/film.service';
 export class PopUpComponent implements OnInit {
   films:Film[]=[];
   resultatFilms :Film[]=[];
+  
 
   constructor(private filmService:FilmService) { }
 
   ngOnInit(): void {
 
     this.getFilms();
+    // this.getDimensionsByFind(5);
   }
   getFilms(){
     this.filmService.findAll()
-        .subscribe(films => {
-          this.resultatFilms = this.films = films
-        })
+    .subscribe(films => {
+      this.resultatFilms = this.films = films
+    })
+    
+    
+         
   }
 }
