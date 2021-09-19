@@ -14,6 +14,7 @@ export class PopUpComponent implements OnInit {
 
   lenghtTotal:any;
   page: number = 1;
+  order: any;
   
 
   constructor(private filmService:FilmService) { }
@@ -21,13 +22,11 @@ export class PopUpComponent implements OnInit {
   ngOnInit(): void {
 
     this.getFilms();
-    // this.getDimensionsByFind(5);
-    this.sortChange()
   }
   getFilms(){
     this.filmService.findAll()
     .subscribe(films => {
-      this.resultatFilms = this.films = films.sort((a,b)=>a.nb_diffusion + b.nb_diffusion)
+      this.resultatFilms = this.films = films.sort((a,b)=>b.nb_diffusion - a.nb_diffusion)
 
       this.lenghtTotal = films.length
 
@@ -35,8 +34,5 @@ export class PopUpComponent implements OnInit {
     })
          
   }
-  sortChange(){
-    this.resultatFilms = this.films.filter((e:any)=>e.nb_diffusion.splice(5))
-    console.log(this.resultatFilms)
-  }
+ 
 }

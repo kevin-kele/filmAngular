@@ -1,4 +1,4 @@
-<h2> Top 5 des Meilleurs film</h2>
+<h2>Top 5 des films les plus diffusés</h2>
 <div class="contenair">
 
     <table  class="table table-hover">
@@ -9,15 +9,14 @@
                 <th scoope="col"> annee de production </th>
                 <th scoope="col"> nationalite </th>
                 <th scoope="col"> derniere diffusion</th>
-                <th scoope="col"> nb diffusion </th>
+                <th scoope="col"  > nb diffusion </th>
                 <th scoope="col"> nb premiere partie </th>
                 <th scoope="col"> moyenne de diffusion par an </th>
             </tr>
         </thead>
-        <tbody *ngFor="let film of resultatFilms | 
-        paginate: { itemsPerPage: 5, currentPage: page,
-        totalItems:lenghtTotal 
-    }">
+        <tbody *ngFor="let film of resultatFilms |
+        paginate: { itemsPerPage: 5,currentPage: page,
+        totalItems:lenghtTotal}">
             <tr>
                 <td>{{film.nom}}</td>
                 <td>{{film.realisateur}}</td>
