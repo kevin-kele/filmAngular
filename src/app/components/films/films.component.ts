@@ -53,11 +53,7 @@ export class FilmsComponent implements OnInit {
     }
 
     searchFilms(){
-      this.resultatFilms = this.films.filter((film)=>film.nom.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase()))
-    }
-
-    searchRea(){
-      this.resultatFilms = this.films.filter((film)=>film.realisateur.includes(this.searchText))
+      this.resultatFilms = this.films.filter((film)=>film.nom.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase())||film.realisateur.toLocaleLowerCase().includes(this.searchText))
     }
 
     openDialog(){

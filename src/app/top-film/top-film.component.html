@@ -1,1 +1,35 @@
-<p>top-film works!</p>
+<h2>Top 5 des meilleur ratio</h2>
+<div class="contenair">
+
+    <table  class="table table-hover">
+        <thead>
+            <tr class="table-active">
+                <th scoope="col">Name </th>
+                <th scoope="col">realisateur</th>
+                <th scoope="col"> annee de production </th>
+                <th scoope="col"> nationalite </th>
+                <th scoope="col"> derniere diffusion</th>
+                <th scoope="col"  > nb diffusion </th>
+                <th scoope="col"> nb premiere partie </th>
+                <th scoope="col"> moyenne de diffusion par an </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let film of resultatFilms |
+        paginate: { itemsPerPage: 5,currentPage: page,
+        totalItems:lenghtTotal}">
+            <tr>
+                <td>{{film.nom}}</td>
+                <td>{{film.realisateur}}</td>
+                <td>{{film.annee_production}}</td>
+                <td>{{film.nationalite}}</td>
+                <td>{{film.derniere_diffusion}}</td>
+                <td>{{film.nb_diffusion}}</td>
+                <td>{{film.nb_premiere_partie}}</td>
+                <td>{{film.moyenne_diffusion_par_an}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<button mat-button mat-dialog-close>Ferme</button>
+</div>
+
