@@ -27,8 +27,8 @@
 <div class="row mb-5">
     <div class="col-md-6 mx-auto">
         <div class="form-group">
-            <label class="mb-2"> Recherche un film</label>
-            <input id="label" (keyup)="searchFilms() " [(ngModel)]="searchText" placeholder="recherche..." type="text" class="form-control">
+            <label class="mb-2"> Recherche</label>
+            <input id="label" (keyup)="searchFilms() " [(ngModel)]="searchText" placeholder="Nom du film .... Realisateur" type="text" class="form-control">
 
            <ul class="d-flex">
                <li class="m-3" *ngFor="let check of CheckBoxArray">
