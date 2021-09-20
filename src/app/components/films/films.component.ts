@@ -19,6 +19,8 @@ export class FilmsComponent implements OnInit {
   resultatFilms :Film[]=[];
   searchText='';
   FilmSelected!: number;
+  lenghtTotal:any;
+  page: number = 1;
   CheckBoxArray:any = [
     {
       nationalite:"France",
@@ -49,6 +51,7 @@ export class FilmsComponent implements OnInit {
       this.filmService.findAll()
           .subscribe(films => {
             this.resultatFilms = this.films = films
+            this.lenghtTotal = films.length
           })
     }
 
